@@ -20,6 +20,7 @@
   "devDependencies": {
     "@mulesoft/access-management-api-client": "^2.0.1",
     "@mulesoft/api-platform-repository-client": "^3.0.0",
+    "@mulesoft/parameters": "^2.0.0",
     "@mulesoft/tslint-config-automation": "0.0.1",
     "@types/chai": "^4.1.7",
     "@types/config": "0.0.34",

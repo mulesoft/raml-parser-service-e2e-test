@@ -1,3 +1,4 @@
+import { parameter } from '@mulesoft/parameters';
 import * as requestPromise from 'request-promise';
 import { RequestClient } from './RequestClient';
 
@@ -26,9 +27,14 @@ export class CoreservicesSession {
     return JSON.parse(process.env[key]);
   }
 
-  private login(username: string): any {
+  private async login(username: string): Promise<any> {
+    // TODO input password from terminal
+    // if (!parameter.get('defaultPassword')) {
+
+    // }
+
     const body: any = {
-      password: process.env.DEFAULT_PASSWORD,
+      password: parameter.get('defaultPassword'),
       username
     };
     const requestClient: RequestClient = new RequestClient();
