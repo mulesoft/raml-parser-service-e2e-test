@@ -1,0 +1,42 @@
+{
+  "name": "@mulesoft/raml-parser-service-e2e-test",
+  "version": "1.0.0",
+  "description": "E2E Test automation of RAML Parser services  ",
+  "main": "index.js",
+  "scripts": {
+    "lint": "tslint -c tslint.json '**/*.ts'",
+    "build": "rm -rf dist && tsc",
+    "pretest": "npm run lint && npm run build",
+    "test": "NODE_ENV=${NODE_ENV:-qa} mocha dist/test/**/*Test.js"
+  },
+  "keywords": [
+    "RAML",
+    "Parser",
+    "API",
+    "Manager"
+  ],
+  "author": "Mulesoft",
+  "license": "MIT",
+  "devDependencies": {
+    "@mulesoft/access-management-api-client": "^2.0.1",
+    "@mulesoft/api-platform-repository-client": "^3.0.0",
+    "@mulesoft/tslint-config-automation": "0.0.1",
+    "@types/chai": "^4.1.7",
+    "@types/config": "0.0.34",
+    "@types/mocha": "^5.2.5",
+    "@types/request-promise": "^4.1.42",
+    "chai": "^4.2.0",
+    "config": "^3.0.1",
+    "http-status-codes": "^1.3.0",
+    "mocha": "^5.2.0",
+    "raml-1-parser": "^1.1.50",
+    "request-promise": "^4.2.2",
+    "tslint": "^5.12.1",
+    "tslint-eslint-rules": "^5.4.0",
+    "typescript": "^3.2.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mulesoft-labs/raml-parser-service-e2e-test"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "@mulesoft/tslint-config-automation/tslint-config"
+  ],
+  "linterOptions": {
+		"exclude": [
+				"node_modules/**/*",
+				"**/*.d.ts"
+		]
+	},
+  "jsRules": {},
+  "rulesDirectory": ["node_modules/tslint-eslint-rules/dist/rules"],
+  "rules": {
+  }
+ }
