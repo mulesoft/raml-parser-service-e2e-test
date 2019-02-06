@@ -20,10 +20,9 @@ describe('Given authenticated user in Pre Crowd Anypoint application', () => {
     organization = await session.get(crowdMasterFromConfig);
 
     const requestClient: any = new RequestClient();
-    requestClient.baseUrl = appConf.baseUrl;
     requestClient.options = appConf.options;
     requestClient.apiManagerAutorization = user.APIManagerAuthorization;
-    apiPlatformClient = requestClient.createAPIPlatform(appConf.URIs.apiPlatform);
+    apiPlatformClient = requestClient.createAPIPlatform(appConf.uris.apiPlatform);
   });
 
   it('then the user and organization should exist', () => {
