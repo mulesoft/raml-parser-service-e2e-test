@@ -2,14 +2,9 @@ import * as CoreServiceClient from '@mulesoft/access-management-api-client';
 import * as APIPlatformClient from '@mulesoft/api-platform-repository-client';
 
 export class RequestClient {
-  private _baseUrl: string;
   private _options: any = {};
   private _apiManagerAutorization: string;
   private _coreServiceAutorization: string;
-
-  set baseUrl(value: string) {
-    this._baseUrl = value;
-  }
 
   set options(value: any) {
     this._options = value;
@@ -25,7 +20,7 @@ export class RequestClient {
 
   public build(uri: string, headers?: any): any {
     return {
-      baseUri: `${this._baseUrl}${uri}`,
+      baseUri: uri,
       headers,
       options: this._options
     };

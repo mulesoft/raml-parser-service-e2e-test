@@ -2,16 +2,14 @@ import * as requestPromise from 'request-promise';
 import { RequestClient } from './RequestClient';
 
 export class CoreservicesSession {
-  private baseUrl: string;
   private coreServiceUri: string;
   private platformSessionUri: string;
   private options: any;
   private accounts: any;
 
   public constructor(appConf: any) {
-    this.baseUrl = appConf.baseUrl;
-    this.coreServiceUri = appConf.URIs.coreService;
-    this.platformSessionUri = appConf.URIs.platformSession;
+    this.coreServiceUri = appConf.uris.coreService;
+    this.platformSessionUri = appConf.uris.platformSession;
     this.options = appConf.options;
     this.accounts = appConf.accounts;
   }
@@ -26,13 +24,12 @@ export class CoreservicesSession {
     return JSON.parse(process.env[key]);
   }
 
-  private login(username: string): any {
+  private async login(username: string): Promise<any> {
     const body: any = {
       password: process.env.DEFAULT_PASSWORD,
       username
     };
     const requestClient: RequestClient = new RequestClient();
-    requestClient.baseUrl = this.baseUrl;
 
     return requestClient.createCoreservice(this.coreServiceUri).login.post(body);
   }
@@ -45,7 +42,7 @@ export class CoreservicesSession {
       json: true,
       method: 'POST',
       resolveWithFullResponse: true,
-      uri: `${this.baseUrl}${this.platformSessionUri}`
+      uri: this.platformSessionUri
     };
 
     const options: any = Object.assign({}, baseOptions, this.options);
@@ -55,7 +52,6 @@ export class CoreservicesSession {
 
   private getEnvironments(autorization: string, organizationId: string): any {
     const requestClient: RequestClient = new RequestClient();
-    requestClient.baseUrl = this.baseUrl;
     requestClient.coreServiceAutorization = autorization;
 
     return requestClient.createCoreservice(this.coreServiceUri).api
