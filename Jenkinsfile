@@ -10,24 +10,21 @@ TEST_TIMEOUT = '5'
 PRODUCT_NAME = 'api-manager'
 COMPONENT_NAME = 'raml-parser-service-e2e-test'
 environments {
-    pull_request {
-        ENVS = 'kstg'
-    }
-    kprod {
-        ENVS = 'kprod'
-    }
     kqa {
         ENVS = 'kqa'
     }
     kstg {
         ENVS = 'kstg'
     }
+    kprod {
+        ENVS = 'kprod'
+    }
 }
 '''
 
 def final PIPELINE_ENV = 'PIPELINE_ENV'
-def final DEFAULT_PIPELINE_ENV = 'pull_request'
-def final PIPELINE_ENVS = 'pull_request,qa,stg,prod'
+def final DEFAULT_PIPELINE_ENV = 'kstg'
+def final PIPELINE_ENVS = 'kstg,kqa,kprod'
 
 def pipelineProperties = [
     parameters([

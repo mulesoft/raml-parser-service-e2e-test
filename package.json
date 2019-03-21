@@ -7,7 +7,8 @@
     "lint": "tslint -c tslint.json '**/*.ts'",
     "build": "rm -rf dist && tsc",
     "pretest": "npm run lint && npm run build",
-    "test": "NODE_ENV=${NODE_ENV:-qa} mocha dist/test/**/*Test.js"
+    "test": "NODE_ENV=${NODE_ENV:-qa} mocha dist/test/**/*Test.js",
+    "ci:test":"npm test"
   },
   "keywords": [
     "RAML",
