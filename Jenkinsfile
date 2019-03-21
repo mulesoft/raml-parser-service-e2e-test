@@ -23,6 +23,7 @@ environments {
         ENVS = 'kprod'
     }
 }
+
 '''
 
 def final PIPELINE_ENV = 'PIPELINE_ENV'
@@ -35,6 +36,11 @@ def pipelineProperties = [
             name: 'PIPELINE_ENV',
             description: 'Environment where the test will be executed',
             choices: PIPELINE_ENVS.split(',').join('\n')
+        ),
+        string(
+          name: 'DEFAULT_PASSWORD'
+          description: 'password'
+          defaultValue: ''
         )
     ])
 ]
