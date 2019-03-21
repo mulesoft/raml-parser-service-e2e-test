@@ -11,16 +11,16 @@ PRODUCT_NAME = 'api-manager'
 COMPONENT_NAME = 'raml-parser-service-e2e-test'
 environments {
     pull_request {
-        ENVS = 'stg'
+        ENVS = 'kstg'
     }
-    prod {
-        ENVS = 'prod'
+    kprod {
+        ENVS = 'kprod'
     }
-    qa {
-        ENVS = 'qa'
+    kqa {
+        ENVS = 'kqa'
     }
-    stg {
-        ENVS = 'stg'
+    kstg {
+        ENVS = 'kstg'
     }
 }
 '''
@@ -33,7 +33,7 @@ def pipelineProperties = [
     parameters([
         choice(
             name: 'PIPELINE_ENV',
-            description: 'The environment where will be execute the test.',
+            description: 'Environment where the test will be executed',
             choices: PIPELINE_ENVS.split(',').join('\n')
         )
     ])
