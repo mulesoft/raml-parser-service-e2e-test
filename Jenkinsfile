@@ -9,6 +9,7 @@ PLATFORM = 'node'
 TEST_TIMEOUT = '5'
 PRODUCT_NAME = 'api-manager'
 COMPONENT_NAME = 'raml-parser-service-e2e-test'
+DEFAULT_PASSWORD = ''
 environments {
     pull_request {
         ENVS = 'stg'
