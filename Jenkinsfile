@@ -50,7 +50,6 @@ def pipelineEnv = env[PIPELINE_ENV] ?: DEFAULT_PIPELINE_ENV,
 
 node(config.DESIRED_NODE_NAME) {
     withCredentials([
-      APIASPRODUCT_USER
         [$class: 'UsernamePasswordMultiBinding', credentialsId: config.GIT_CREDENTIALS_ID, passwordVariable: 'GITHUB_PASS', usernameVariable: 'GITHUB_USER'],
         [$class: 'UsernamePasswordMultiBinding', credentialsId: 'APIASP', passwordVariable: 'DEFAULT_PASSWORD', usernameVariable: 'DEFAULT_USER'],
         [$class: 'UsernamePasswordMultiBinding', credentialsId: 'muleteer-bucket-key', passwordVariable: 'S3_SECRET_ACCESS_KEY', usernameVariable: 'S3_ACCESS_KEY_ID']
