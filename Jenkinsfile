@@ -36,11 +36,6 @@ def pipelineProperties = [
             name: 'PIPELINE_ENV',
             description: 'Environment where the test will be executed',
             choices: PIPELINE_ENVS.split(',').join('\n')
-        ),
-        string(
-          name: 'DEFAULT_PASSWORD',
-          description: 'password',
-          defaultValue: ''
         )
     ])
 ]
@@ -51,7 +46,7 @@ def pipelineEnv = env[PIPELINE_ENV] ?: DEFAULT_PIPELINE_ENV,
 node(config.DESIRED_NODE_NAME) {
     withCredentials([
         [$class: 'UsernamePasswordMultiBinding', credentialsId: config.GIT_CREDENTIALS_ID, passwordVariable: 'GITHUB_PASS', usernameVariable: 'GITHUB_USER'],
-        [$class: 'UsernamePasswordMultiBinding', credentialsId: 'APIASP', passwordVariable: 'DEFAULT_PASSWORD', usernameVariable: 'DEFAULT_USER'],
+        [$class: 'UsernamePasswordMultiBinding', credentialsId: 'credentials', passwordVariable: 'DEFAULT_PASSWORD'],
         [$class: 'UsernamePasswordMultiBinding', credentialsId: 'muleteer-bucket-key', passwordVariable: 'S3_SECRET_ACCESS_KEY', usernameVariable: 'S3_ACCESS_KEY_ID']
     ]) {
         checkout(
