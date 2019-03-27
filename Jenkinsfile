@@ -9,7 +9,6 @@ PLATFORM = 'node'
 TEST_TIMEOUT = '5'
 PRODUCT_NAME = 'api-manager'
 COMPONENT_NAME = 'raml-parser-service-e2e-test'
-DEFAULT_PASSWORD = ''
 environments {
     pull_request {
         ENVS = 'stg'
@@ -47,7 +46,7 @@ def pipelineEnv = env[PIPELINE_ENV] ?: DEFAULT_PIPELINE_ENV,
 node(config.DESIRED_NODE_NAME) {
     withCredentials([
         [$class: 'UsernamePasswordMultiBinding', credentialsId: config.GIT_CREDENTIALS_ID, passwordVariable: 'GITHUB_PASS', usernameVariable: 'GITHUB_USER'],
-        [$class: 'UsernamePasswordMultiBinding', credentialsId: 'credentials', passwordVariable: 'DEFAULT_PASSWORD'],
+        [$class: 'UsernamePasswordMultiBinding', credentialsId: 'credentials', passwordVariable: 'DEFAULT_PASSWORD', usernameVariable: 'DEFAULT_USER'],
         [$class: 'UsernamePasswordMultiBinding', credentialsId: 'muleteer-bucket-key', passwordVariable: 'S3_SECRET_ACCESS_KEY', usernameVariable: 'S3_ACCESS_KEY_ID']
     ]) {
         checkout(
