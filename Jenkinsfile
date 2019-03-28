@@ -13,13 +13,13 @@ environments {
     pull_request {
         ENVS = 'stg'
     }
-    qa {
+    kqa {
         ENVS = 'qa'
     }
-    stg {
+    kstg {
         ENVS = 'stg'
     }
-    prod {
+    kprod {
         ENVS = 'prod'
     }
 }
