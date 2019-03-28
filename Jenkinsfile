@@ -28,7 +28,7 @@ environments {
 
 def final PIPELINE_ENV = 'PIPELINE_ENV'
 def final DEFAULT_PIPELINE_ENV = 'pull_request'
-def final PIPELINE_ENVS = 'pull_request,qa,stg,prod'
+def final PIPELINE_ENVS = 'pull_request,kqa,kstg,kprod'
 
 def pipelineProperties = [
     parameters([
