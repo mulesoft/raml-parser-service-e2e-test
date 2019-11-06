@@ -3,7 +3,7 @@
 def PIPELINE_PARAMETERS = '''
 DESIRED_NODE_NAME = 'docker'
 GIT_CREDENTIALS_ID = 'github'
-PIPELINE_VERSION = 'v2.0.38'
+PIPELINE_VERSION = 'v2.0.47'
 PROJECT_NAME = 'raml-parser-service-e2e-test'
 PLATFORM = 'node'
 TEST_TIMEOUT = '5'
