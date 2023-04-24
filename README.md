@@ -1,7 +1,7 @@
 # AUTOMATION-RAML-PARSER-API
 API Test Automation for API Platform using [TypeScript](https://www.typescriptlang.org/) with [Mocha](https://mochajs.org/).
 
-## First time setup
+## First time setup test
 
 * _Requires `Node v6` or bigger, see [here](https://github.com/mulesoft/js-automation-framework/wiki/Install-Node.js) how to install it_
 * _Requires to be logged in into the npm private Mulesoft registry, see [here](https://github.com/mulesoft/js-automation-framework/wiki/NPM-private-configuration) how to do it_
